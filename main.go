@@ -44,7 +44,7 @@ func main() {
 		})
 	}
 
-	if err := g.Wait(); err != nil {
+	if err := g.Wait(); err != nil && !errors.Is(err, sentinel) {
 		log.Fatal(err)
 	}
 }
